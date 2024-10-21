@@ -1,9 +1,10 @@
-import React from 'react';
 import Login from './Login';
 import Browse from './Browse';
+import Error from './Error';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const Body = () => {
+
     const appRouter = createBrowserRouter([
         {
             path: "/",
@@ -12,8 +13,13 @@ const Body = () => {
         {
             path : "/browse",
             element : <Browse/>
+        },
+        {
+            path : "/error",
+            element : <Error/>
         }
     ])
+
     return (
         <div>
            <RouterProvider router = {appRouter}/>
