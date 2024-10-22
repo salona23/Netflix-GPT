@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const MovieList = ({title,movies}) => {
     if(!movies) return null;
-// console.log(movies[0]);
     return (
         <div className='py-6 px-16 z-30 ' >
             <h1 className='text-xl mb-[10px] text-white font-bold'>{title}</h1>

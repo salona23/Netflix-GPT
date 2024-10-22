@@ -56,7 +56,7 @@ const Header = () => {
 
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView());
-    console.log("click");
+    // console.log("click");
   };
   const handleLanguageChange = (e) =>{
     // console.log(e.target.value);
@@ -64,11 +64,11 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute w-screen px-8 py-2  bg-gradient-to-b from-black  flex justify-between z-20">
-      <img className="w-[200px]" src={LOGO} alt="Netflix-logo"></img>
+    <div className="absolute w-screen px-8 py-2  bg-gradient-to-b from-black  flex justify-between z-30  ">
+      <img className="w-[200px] " src={LOGO} alt="Netflix-logo"></img>
 
       {user && (
-        <div className="flex my-2 p-2">
+        <div className="flex my-2 p-2 ">
          {showGptSearch && <select className="bg-gray-800 text-white px-4 h-9 rounded-md opacity-90" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGE.map((lang)=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
           
