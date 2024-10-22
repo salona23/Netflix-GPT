@@ -64,31 +64,36 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute w-screen px-8 py-2  bg-gradient-to-b from-black  flex justify-between z-30  ">
-      <img className="w-[200px] " src={LOGO} alt="Netflix-logo"></img>
+    <div className="fixed  w-screen md:px-12 py-2  bg-gradient-to-b from-black flex flex-row justify-between z-40 px-2 " >
+      
+      <img className="md:w-[200px] md:mx-0 w-[90px] " src={LOGO} alt="Netflix-logo"></img>
 
       {user && (
-        <div className="flex my-2 p-2 ">
-         {showGptSearch && <select className="bg-gray-800 text-white px-4 h-9 rounded-md opacity-90" onChange={handleLanguageChange}>
+        <div className="flex my-2 md:p-2 ">
+         {showGptSearch && <select className="bg-gray-800 text-white md:px-4 md:h-9 md:text-sm rounded-md opacity-85 
+          text-[10px] h-[22px] mr-2 " onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGE.map((lang)=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
           
           </select>}
           <button
-            className="h-9 px-4 mx-8 bg-purple-700 rounded-lg text-white  font-bold hover:bg-purple-900 "
+            className="md:h-9 md:px-4 md:mx-2 md:text-sm bg-purple-700 rounded-lg text-white font-bold hover:bg-purple-900
+             text-[12px] h-[22px] px-2 mr-1"
             onClick={handleGptSearch}
           >
             {showGptSearch ? "Home":"GPTSearch"}
           </button>
           <img
-            className="w-8 h-8 rounded-md mx-2"
+            className="md:text-[20px] md:h-8 md:mx-2  rounded-md
+            text-[10px] h-[22px] mx-2 "
             src={user.photoURL}
             alt="User Avatar"
           ></img>
           <button
-            className="h-9 px-2 mx-2 bg-red-600 text-white rounded-md font-bold hover:bg-red-500"
+            className="md:h-9 md:px-2 md:mx-2 md:text-sm bg-red-600 text-white rounded-md font-bold hover:bg-red-500
+            text-[12px] h-[22px] px-2 mr-1"
             onClick={handleSignOut}
           >
-            Sign Out
+            SignOut
           </button>
         </div>
       )}

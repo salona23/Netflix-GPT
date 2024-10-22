@@ -84,12 +84,14 @@ const Login = () => {
         <img
           src={LOGIN_PAGE_BG}
           alt="logo"
+          className = "fixed object-cover h-screen w-screen"
         ></img>
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute bg-black w-3/12 p-12 my-36 mx-auto left-0 right-0 text-white bg-opacity-80 rounded-lg">
-        <h1 className="font-bold text-3xl my-4">
+        className="absolute bg-black md:w-3/12 md:p-12 md:my-36 mx-auto left-0 right-0 text-white bg-opacity-80 rounded-lg
+        w-10/12 my-28 p-8">
+        <h1 className="font-bold md:text-3xl md:my-4 my-2 text-xl">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignIn && (
@@ -97,25 +99,25 @@ const Login = () => {
           ref={name}
             type="text"
             placeholder="Full Name"
-            className="my-4 p-4 w-full bg-gray-700 bg-opacity-50 rounded-md"
+            className="md:my-4 md:p-4 w-full bg-gray-700 bg-opacity-50 rounded-md p-3 my-2"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="my-4 p-4 w-full bg-gray-700 bg-opacity-50 rounded-md"
+          className="md:my-4 md:p-4 w-full bg-gray-700 bg-opacity-50 rounded-md p-3 my-2"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="my-4 p-4 w-full bg-gray-700 bg-opacity-50 rounded-md"
+          className="md:my-4 md:p-4 w-full bg-gray-700 bg-opacity-50 rounded-md p-3 my-2"
         />
         <p className="text-red-500 font-bold py-2">{errorMessage}</p>
 
         <button
-          className="bg-red-700 font-bold my-4 p-4 w-full rounded-lg"
+          className="bg-red-700 font-bold md:my-4 md:p-4 w-full rounded-lg p-3 my-2"
           onClick={handleValidation}
         >
           {isSignIn ? "Sign In" : "Sign Up"}

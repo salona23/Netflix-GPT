@@ -13,7 +13,7 @@ const GptSearchBar = () => {
   const getMoviesSuggestion = async (movie) =>{
     const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=true&language=en-US&page=1",API_OPTIONS);
     const json = await data.json();
-    // console.log(json.results);
+  
     return json.results;
   }
 
@@ -25,30 +25,31 @@ const GptSearchBar = () => {
 
     const result = await model.generateContent(prompt);
     const gptMovieNames = result.response.text().split(", ");
-    // getMoviesSuggestion(gptMoviesResult[0])
     const moviesPromise =  gptMovieNames.map(movie=>getMoviesSuggestion(movie));
 
     const gptMovieResults = await Promise.all(moviesPromise);
     dispatch(addGptMovieSuggestion({gptMovieNames,gptMovieResults}))
 
     
-    // console.log(gptMovieResults);
-
+   
   };
   return (
     <div className="pt-[10%] flex justify-center">
       <form
-        className="bg-black w-1/2 grid grid-cols-12"
+        className="bg-black  grid grid-cols-12 md:w-1/2 p-2 rounded-md"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
-          className="m-4 p-4 col-span-10 rounded-lg"
+          className="md:text-lg md:h-12 md:m-4 md:p-4  col-span-10 rounded-lg md:w-[95%] 
+          w-[250px] h-[35px] m-1 p-1 text-[14px]
+          "
           type="text"
           placeholder={lang[langCode].GptPlaceholder}
           ref={searchText}
         ></input>
         <button
-          className="m-4  ml-0 py-2 px-4 col-span-2 bg-red-600 text-white rounded-md  hover:bg-red-700"
+          className="md:text-md md:h-12 md:p-2 md:my-4 md:mx-2 col-span-2 bg-red-600 text-white rounded-md font-bold hover:bg-red-700
+          text-[14px] h-[35px] p-1 my-1 mx-[2px]"
           onClick={handleSearchSuggestion}
         >
           {lang[langCode].search}
